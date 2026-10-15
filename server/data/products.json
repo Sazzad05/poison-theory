@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "Toxin Straight-Leg-Sab",
+    "price": 189,
+    "category": "jeans",
+    "rating": 5,
+    "img": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&q=80",
+    "sizes": {
+      "S": 5,
+      "M": 9,
+      "L": 0,
+      "XL": 0,
+      "XXL": 13
+    },
+    "colors": [
+      "black",
+      "white"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Antidote Trucker Jacket",
+    "price": 269,
+    "category": "jackets",
+    "badge": "Best Seller",
+    "rating": 4.9,
+    "img": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&q=80",
+    "sizes": {
+      "M": 6,
+      "L": 5,
+      "XL": 7,
+      "XXL": 7
+    },
+    "colors": [
+      "indigo"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Venom Overshirt",
+    "price": 149,
+    "category": "shirts",
+    "rating": 4.7,
+    "img": "/uploads/pt_1790616962276_wk2rxs.jpg",
+    "sizes": {
+      "L": 2,
+      "XL": 4
+    },
+    "colors": [
+      "gray"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Serum Slim Denim",
+    "price": 179,
+    "oldPrice": 220,
+    "category": "jeans",
+    "badge": "New Drop",
+    "rating": 4.6,
+    "img": "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=800&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Reagent Denim Cap",
+    "price": 59,
+    "category": "accessories",
+    "rating": 4.5,
+    "img": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
+    "sizes": {
+      "L": 7,
+      "XL": 7,
+      "XXL": 8
+    },
+    "colors": [
+      "black",
+      "white",
+      "indigo"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Elixir Selvedge Jacket",
+    "price": 329,
+    "category": "jackets",
+    "badge": "Limited",
+    "rating": 5,
+    "img": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Potion Pocket Tee",
+    "price": 79,
+    "category": "shirts",
+    "rating": 4.4,
+    "img": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Vial Chain Belt",
+    "price": 89,
+    "oldPrice": 120,
+    "category": "accessories",
+    "rating": 4.6,
+    "img": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800&q=80"
+  },
+  {
+    "id": 9,
+    "name": "Biohazard Wide-Leg",
+    "price": 209,
+    "category": "jeans",
+    "rating": 4.8,
+    "img": "https://images.unsplash.com/photo-1475178626620-a4d074967452?w=800&q=80"
+  }
+]

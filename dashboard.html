@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Poison Theory</title>
+  <link rel="icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="grain admin-body">
+
+  <!-- ============ HEADER ============ -->
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <img src="assets/logo.png" class="admin-logo" alt="Poison Theory" />
+      <div>
+        <h1>Poison Theory</h1>
+        <span class="admin-sub">Control Panel</span>
+      </div>
+    </div>
+    <div class="admin-header-right">
+      <span class="admin-user-chip">
+        <strong id="userName">—</strong>
+        <small id="userRole">—</small>
+      </span>
+      <a href="index.html" class="btn btn-ghost admin-btn-sm" target="_blank">View Site ↗</a>
+      <button class="btn btn-ghost admin-btn-sm" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <!-- ============ TABS ============ -->
+  <nav class="admin-tabs">
+    <button class="admin-tab active" data-tab="products">Products &amp; Stock</button>
+    <button class="admin-tab" data-tab="orders">Orders</button>
+    <button class="admin-tab" data-tab="sales" data-role="admin,manager">Sales</button>
+    <button class="admin-tab" data-tab="users" data-role="admin">Users</button>
+    <button class="admin-tab" data-tab="settings" data-role="admin">Settings</button>
+  </nav>
+
+  <main class="admin-main">
+
+    <!-- ============ PRODUCTS & STOCK ============ -->
+    <section class="admin-panel active" id="tab-products">
+      <div class="admin-actions">
+        <h2>Products &amp; Stock</h2>
+        <div class="admin-filters">
+          <select id="productFilter">
+            <option value="all">All products</option>
+            <option value="low">Low stock (≤5 total)</option>
+            <option value="out">Out of stock</option>
+          </select>
+          <button class="btn btn-primary" id="addProductBtn" data-role="admin,manager">
+            + Add Product
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table admin-products-table">
+          <thead>
+            <tr>
+              <th style="width:70px">Image</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Colors</th>
+              <th>Stock by Size</th>
+              <th style="text-align:right">Total</th>
+              <th style="width:140px;text-align:right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ ORDERS ============ -->
+    <section class="admin-panel" id="tab-orders">
+      <div class="admin-actions">
+        <h2>Orders</h2>
+        <div class="admin-filters">
+          <select id="orderStatusFilter">
+            <option value="">All statuses</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="dispatched">Dispatched</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <select id="orderSortFilter">
+            <option value="recent">Most recent first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="high">Highest total</option>
+            <option value="low">Lowest total</option>
+          </select>
+          <input type="text" id="orderSearch" class="admin-search" placeholder="Search name / email / #id" />
+        </div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table admin-orders-table">
+          <thead>
+            <tr>
+              <th style="width:30px"></th>
+              <th>#</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Placed</th>
+              <th style="text-align:right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="orderRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ SALES ============ -->
+    <section class="admin-panel" id="tab-sales">
+      <div class="admin-actions">
+        <h2>Sales Analytics</h2>
+        <div class="admin-filters">
+          <select id="salesPeriod">
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+            <option value="180">Last 6 months</option>
+            <option value="365" selected>Last 12 months</option>
+            <option value="all">All time</option>
+          </select>
+          <select id="salesCategoryFilter">
+            <option value="">All categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="admin-sales-grid">
+        <div class="sales-stat">
+          <span>Revenue</span>
+          <strong id="statRevenue">$0.00</strong>
+        </div>
+        <div class="sales-stat">
+          <span>Orders</span>
+          <strong id="statOrders">0</strong>
+        </div>
+        <div class="sales-stat">
+          <span>Avg. Order Value</span>
+          <strong id="statAOV">$0.00</strong>
+        </div>
+        <div class="sales-stat">
+          <span>Items Sold</span>
+          <strong id="statItems">0</strong>
+        </div>
+      </div>
+
+      <div class="admin-sales-grid small">
+        <div class="sales-stat"><span>Pending</span><strong id="statPending">0</strong></div>
+        <div class="sales-stat"><span>Confirmed</span><strong id="statConfirmed">0</strong></div>
+        <div class="sales-stat"><span>Dispatched</span><strong id="statDispatched">0</strong></div>
+        <div class="sales-stat"><span>Delivered</span><strong id="statDelivered">0</strong></div>
+        <div class="sales-stat"><span>Cancelled</span><strong id="statCancelled">0</strong></div>
+      </div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head"><h3>Revenue Over Time</h3></div>
+        <div class="admin-sales-chart" id="salesChart"></div>
+      </div>
+
+      <div class="sales-two-col">
+        <div class="admin-sales">
+          <div class="admin-sales-head"><h3>Best Sellers</h3></div>
+          <ol class="sales-rank" id="bestSellers"></ol>
+        </div>
+        <div class="admin-sales">
+          <div class="admin-sales-head"><h3>Size Breakdown</h3></div>
+          <div class="size-breakdown" id="sizeBreakdown"></div>
+        </div>
+      </div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head"><h3>Category Performance</h3></div>
+        <div class="category-bars" id="categoryBars"></div>
+      </div>
+    </section>
+
+    <!-- ============ USERS ============ -->
+    <section class="admin-panel" id="tab-users">
+      <div class="admin-actions">
+        <h2>Team</h2>
+        <button class="btn btn-primary" id="addUserBtn">+ Add User</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th style="text-align:right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="userRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section class="admin-panel" id="tab-settings">
+      <div class="admin-actions"><h2>Settings</h2></div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head"><h3>Store</h3></div>
+        <div class="settings-grid">
+          <div class="admin-field">
+            <label>Currency Symbol</label>
+            <input type="text" id="setCurrencySymbol" placeholder="$" />
+          </div>
+          <div class="admin-field">
+            <label>Currency Code</label>
+            <input type="text" id="setCurrencyCode" placeholder="USD" />
+          </div>
+          <div class="admin-field">
+            <label>Symbol Position</label>
+            <select id="setCurrencyPosition">
+              <option value="before">Before ($100)</option>
+              <option value="after">After (100$)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="settings-toggle">
+          <label class="settings-switch">
+            <input type="checkbox" id="setOrdersEnabled" />
+            <span class="settings-slider"></span>
+          </label>
+          <div>
+            <strong>Accept Orders</strong>
+            <small>Turn off to pause checkout during restocks or holidays.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head">
+          <h3>Categories</h3>
+          <button class="btn btn-ghost admin-btn-sm" id="addCategoryBtn">+ Add</button>
+        </div>
+        <ul class="settings-list" id="categoryList"></ul>
+      </div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head"><h3>Sizes</h3></div>
+        <div class="settings-chips" id="sizeChips"></div>
+        <div class="settings-add-row">
+          <input type="text" id="newSize" placeholder="e.g. 3XL" />
+          <button class="btn btn-ghost admin-btn-sm" id="addSizeBtn">Add</button>
+        </div>
+      </div>
+
+      <div class="admin-sales">
+        <div class="admin-sales-head"><h3>Colors</h3></div>
+        <ul class="settings-list" id="colorList"></ul>
+        <div class="settings-add-row">
+          <input type="text" id="newColorLabel" placeholder="Color name" />
+          <input type="color" id="newColorHex" value="#0a0a0a" />
+          <button class="btn btn-ghost admin-btn-sm" id="addColorBtn">Add</button>
+        </div>
+      </div>
+
+      <div class="settings-save-bar">
+        <p class="settings-status" id="settingsStatus"></p>
+        <button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ PRODUCT MODAL ============ -->
+  <div class="admin-modal-overlay" id="modalOverlay" hidden>
+    <div class="admin-modal admin-modal-lg">
+      <header class="admin-modal-head">
+        <h3 id="modalTitle">Add Product</h3>
+        <button class="admin-modal-close" id="modalClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </header>
+
+      <form id="productForm" class="admin-modal-form">
+        <input type="hidden" id="fieldId" />
+
+        <div class="admin-field">
+          <label>Name *</label>
+          <input type="text" id="fieldName" required />
+        </div>
+
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Price *</label>
+            <input type="number" id="fieldPrice" step="0.01" min="0" required />
+          </div>
+          <div class="admin-field">
+            <label>Old Price</label>
+            <input type="number" id="fieldOldPrice" step="0.01" min="0" />
+          </div>
+        </div>
+
+        <div class="admin-row">
+          <div class="admin-field">
+            <label>Category *</label>
+            <select id="fieldCategory" required></select>
+          </div>
+          <div class="admin-field">
+            <label>Badge</label>
+            <input type="text" id="fieldBadge" placeholder="New Drop, Limited…" />
+          </div>
+        </div>
+
+        <div class="admin-field">
+          <label>Rating (0–5)</label>
+          <input type="number" id="fieldRating" step="0.1" min="0" max="5" />
+        </div>
+
+        <div class="admin-field">
+          <label>Image * <small id="imgHint"></small></label>
+          <input type="file" id="fieldImg" accept="image/*" />
+          <img id="previewImg" class="admin-preview-img" hidden alt="Preview" />
+        </div>
+
+        <!-- Sizes & stock -->
+        <div class="admin-field">
+          <label>Sizes &amp; Stock</label>
+          <div class="size-picker" id="sizePicker">
+            <!-- injected -->
+          </div>
+        </div>
+
+        <!-- Colors -->
+        <div class="admin-field">
+          <label>Colors</label>
+          <div class="color-picker" id="colorPicker">
+            <!-- injected -->
+          </div>
+        </div>
+
+        <p class="admin-form-error" id="formError"></p>
+
+        <footer class="admin-modal-foot">
+          <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveBtn">Save</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ USER MODAL ============ -->
+  <div class="admin-modal-overlay" id="userModalOverlay" hidden>
+    <div class="admin-modal">
+      <header class="admin-modal-head">
+        <h3 id="userModalTitle">Add User</h3>
+        <button class="admin-modal-close" id="userModalClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </header>
+
+      <form id="userForm" class="admin-modal-form">
+        <input type="hidden" id="userId" />
+
+        <div class="admin-field">
+          <label>Full Name</label>
+          <input type="text" id="userFullName" />
+        </div>
+
+        <div class="admin-field">
+          <label>Username *</label>
+          <input type="text" id="userUsername" required />
+        </div>
+
+        <div class="admin-field">
+          <label>Password <small id="pwdHint"></small></label>
+          <input type="password" id="userPassword" />
+        </div>
+
+        <div class="admin-field">
+          <label>Role *</label>
+          <select id="userRoleInput" required>
+            <option value="coordinator">Coordinator</option>
+            <option value="manager">Manager</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <div class="admin-field admin-check">
+          <label>
+            <input type="checkbox" id="userActive" checked />
+            Active
+          </label>
+        </div>
+
+        <p class="admin-form-error" id="userFormError"></p>
+
+        <footer class="admin-modal-foot">
+          <button type="button" class="btn btn-ghost" id="userCancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="userSaveBtn">Save</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

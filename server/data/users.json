@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "name": "Head",
+    "role": "admin",
+    "password": "$2a$10$CuUtlZlZUYvLGuzWEVO0AOhO7PUFdrVr/TOrBftR98HPGjHfH1raW",
+    "active": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "username": "manager",
+    "name": "Manager",
+    "role": "manager",
+    "password": "$2a$10$cXMU7cnmPtQN1M23NPTcl.iaHPzCRkHC8TwW3GhzVsxYFqn/j2PAm",
+    "active": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "username": "coordinator",
+    "name": "Field Coordinator",
+    "role": "coordinator",
+    "password": "$2a$10$SXnJHUv20e1vQJSKdugHpeKqiOSgkORwqVk/f8KB/VgNclcc2Q/ji",
+    "active": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "username": "Sabab",
+    "name": "Sazzad Alam Bhuiyan",
+    "role": "admin",
+    "password": "$2a$10$55uby8J48IdXrzSbSp3lDOLN4hp0Ytt.L81M.pKOs5zeYGnOztHCK",
+    "active": true,
+    "createdAt": "2026-09-28T15:08:26.207Z"
+  }
+]

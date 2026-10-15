@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Poison Theory</title>
+  <link rel="icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="grain">
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="assets/logo.png" alt="Poison Theory" class="loader-logo" />
+      <div class="loader-bar"><div id="loaderBar"></div></div>
+      <p class="loader-text">BREWING THE GOODS…</p>
+    </div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar">
+    <nav class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Poison Theory" class="brand-logo" />
+        <span class="brand-name">Poison<span>Theory</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#products">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
+          </svg>
+          <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ CHECKOUT ============ -->
+  <section class="checkout-page">
+    <div class="container">
+      <header class="checkout-head" data-aos="fade-up">
+        <p class="eyebrow">The Final Step</p>
+        <h1>Checkout</h1>
+        <p class="checkout-sub">Where should we send your dose?</p>
+      </header>
+
+      <div class="checkout-grid">
+        <!-- ---------- FORM ---------- -->
+        <form class="checkout-form" id="checkoutForm" data-aos="fade-right" novalidate>
+          <fieldset>
+            <legend>Contact</legend>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cName">Full Name *</label>
+                <input type="text" id="cName" required autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="cPhone">Phone *</label>
+                <input type="tel" id="cPhone" required autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cEmail">Email *</label>
+              <input type="email" id="cEmail" required autocomplete="email" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Shipping Address</legend>
+            <div class="form-field">
+              <label for="cAddress">Street Address *</label>
+              <input type="text" id="cAddress" required autocomplete="street-address" />
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cCity">City</label>
+                <input type="text" id="cCity" autocomplete="address-level2" />
+              </div>
+              <div class="form-field">
+                <label for="cPostal">Postal Code</label>
+                <input type="text" id="cPostal" autocomplete="postal-code" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cNotes">Order Notes</label>
+              <textarea id="cNotes" rows="3" placeholder="Anything we should know?"></textarea>
+            </div>
+          </fieldset>
+
+          <p class="checkout-error" id="checkoutError"></p>
+
+          <button type="submit" class="btn btn-primary checkout-submit" id="checkoutSubmit">
+            Place Order →
+          </button>
+
+          <p class="checkout-note">
+            By placing an order you agree to be contacted about delivery. No payment is collected yet.
+          </p>
+        </form>
+
+        <!-- ---------- ORDER SUMMARY ---------- -->
+        <aside class="checkout-summary" data-aos="fade-left">
+          <h2>Your Order</h2>
+          <div id="summaryItems" class="summary-items"></div>
+          <div class="summary-totals">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="summarySubtotal">$0.00</strong>
+            </div>
+            <div class="summary-row muted">
+              <span>Shipping</span>
+              <span>Calculated later</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <strong id="summaryTotal">$0.00</strong>
+            </div>
+          </div>
+          <a href="index.html#products" class="summary-back">← Continue shopping</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Poison Theory" />
+        <span>Poison<span>Theory</span></span>
+      </div>
+      <p class="footer-copy">© 2025 Poison Theory. Bottled rebellion.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <header class="cart-head">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="cart-body" id="cartBody"></div>
+
+    <footer class="cart-foot" id="cartFoot">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <p class="cart-note">Shipping calculated at checkout.</p>
+      <button class="btn btn-primary cart-checkout" id="cartCheckout" disabled>
+        Checkout → (coming soon)
+      </button>
+    </footer>
+  </aside>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

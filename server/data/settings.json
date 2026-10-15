@@ -1,0 +1,65 @@
+{
+  "currency": {
+    "code": "BDT",
+    "symbol": "৳",
+    "position": "after"
+  },
+  "ordersEnabled": true,
+  "categories": [
+    {
+      "id": "jeans",
+      "label": "Jeans"
+    },
+    {
+      "id": "jackets",
+      "label": "Jackets"
+    },
+    {
+      "id": "shirts",
+      "label": "Shirts"
+    },
+    {
+      "id": "accessories",
+      "label": "Accessories"
+    },
+    {
+      "id": "tshirt",
+      "label": "Tshirt"
+    }
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
+    "3XL"
+  ],
+  "colors": [
+    {
+      "id": "black",
+      "label": "Black",
+      "hex": "#0a0a0a"
+    },
+    {
+      "id": "white",
+      "label": "White",
+      "hex": "#f5f5f5"
+    },
+    {
+      "id": "indigo",
+      "label": "Indigo",
+      "hex": "#2c3e6e"
+    },
+    {
+      "id": "rust",
+      "label": "Rust",
+      "hex": "#8b4513"
+    },
+    {
+      "id": "gray",
+      "label": "Gray",
+      "hex": "#787878"
+    }
+  ]
+}

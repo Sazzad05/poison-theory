@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — Poison Theory</title>
+  <link rel="icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="grain">
+
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="assets/logo.png" alt="Poison Theory" class="loader-logo" />
+      <div class="loader-bar"><div id="loaderBar"></div></div>
+      <p class="loader-text">SEALING THE DOSE…</p>
+    </div>
+  </div>
+
+  <header id="navbar">
+    <nav class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Poison Theory" class="brand-logo" />
+        <span class="brand-name">Poison<span>Theory</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#products">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
+          </svg>
+          <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="confirmed-page">
+    <div class="container">
+      <div class="confirmed-card" id="confirmedCard" data-aos="zoom-in">
+        <div class="confirmed-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+
+        <h1>Order Received</h1>
+        <p id="confirmedMessage">Thanks — your order has been placed and logged with the lab.</p>
+
+        <div class="confirmed-order-box" id="orderBox" hidden>
+          <div class="confirmed-order-row">
+            <span>Order Number</span>
+            <strong class="accent" id="orderId">#—</strong>
+          </div>
+          <div class="confirmed-order-row">
+            <span>Status</span>
+            <strong id="orderStatus">Pending</strong>
+          </div>
+          <div class="confirmed-order-row">
+            <span>Subtotal</span>
+            <strong id="orderTotal">$0.00</strong>
+          </div>
+          <div class="confirmed-order-row">
+            <span>Placed On</span>
+            <strong id="orderDate">—</strong>
+          </div>
+        </div>
+
+        <ul class="confirmed-items-list" id="orderItems"></ul>
+
+        <p class="confirmed-next">
+          A coordinator will reach out shortly to confirm shipping details.
+        </p>
+
+        <div class="confirmed-actions">
+          <a href="index.html#products" class="btn btn-primary">Keep Shopping →</a>
+          <a href="index.html" class="btn btn-ghost">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Poison Theory" />
+        <span>Poison<span>Theory</span></span>
+      </div>
+      <p class="footer-copy">© 2025 Poison Theory. Bottled rebellion.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <header class="cart-head">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+    <div class="cart-body" id="cartBody"></div>
+    <footer class="cart-foot" id="cartFoot">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <p class="cart-note">Shipping calculated at checkout.</p>
+      <button class="btn btn-primary cart-checkout" id="cartCheckout" disabled>
+        Checkout → (coming soon)
+      </button>
+    </footer>
+  </aside>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/order-confirmed.js"></script>
+</body>
+</html>

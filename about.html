@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Poison Theory — small-batch denim brewed for the bold." />
+  <title>About Us — Poison Theory</title>
+
+  <link rel="icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+</head>
+
+<body class="grain">
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="assets/logo.png" alt="Poison Theory" class="loader-logo" />
+      <div class="loader-bar"><div id="loaderBar"></div></div>
+      <p class="loader-text">BREWING THE GOODS…</p>
+    </div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar">
+    <nav class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Poison Theory" class="brand-logo" />
+        <span class="brand-name">Poison<span>Theory</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#products">Shop</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
+          </svg>
+          <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="hero about-hero-page">
+    <div class="hero-glow"></div>
+
+    <!-- Blended wordmark behind hero text -->
+    <div class="hero-wordmark" aria-hidden="true">
+      <img src="assets/wordmark.png" alt="" />
+    </div>
+
+    <div class="container hero-content">
+      <p class="eyebrow" data-aos="fade-up">Est. 2024 · Denim Division</p>
+      <h1 data-aos="fade-up" data-aos-delay="100">
+        We don't make jeans.<br />
+        <span class="gradient-red">We brew them.</span>
+      </h1>
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">
+        Poison Theory is a small-batch denim label built on a grudge against disposable fashion.
+      </p>
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+        <a href="index.html#products" class="btn btn-primary">Shop the Vault →</a>
+        <a href="index.html#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <section class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>Handcrafted</span><em>✕</em>
+        <span>Limited Runs</span><em>✕</em>
+        <span>Raw Selvedge</span><em>✕</em>
+        <span>Free Shipping</span><em>✕</em>
+        <span>Handcrafted</span><em>✕</em>
+        <span>Limited Runs</span><em>✕</em>
+        <span>Raw Selvedge</span><em>✕</em>
+        <span>Free Shipping</span><em>✕</em>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>Handcrafted</span><em>✕</em>
+        <span>Limited Runs</span><em>✕</em>
+        <span>Raw Selvedge</span><em>✕</em>
+        <span>Free Shipping</span><em>✕</em>
+        <span>Handcrafted</span><em>✕</em>
+        <span>Limited Runs</span><em>✕</em>
+        <span>Raw Selvedge</span><em>✕</em>
+        <span>Free Shipping</span><em>✕</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR STORY ============ -->
+  <section class="section container">
+    <div class="section-head center">
+      <p class="eyebrow" data-aos="fade-up">Our Story</p>
+      <h2 data-aos="fade-up" data-aos-delay="100">From a grudge to a <span class="gradient-red">formula.</span></h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-text" data-aos="fade-right">
+        <p>
+          Poison Theory started in 2024 as a reaction — a refusal to accept the thin, overpriced,
+          disposable denim flooding the market. We wanted something heavier. Honest. Built to
+          survive a decade, not a season.
+        </p>
+        <p>
+          Every piece is cut, stitched, and sealed in small batches in our workshop.
+          No middlemen, no shortcuts, no watered-down formulas. Just raw selvedge, brutal
+          construction, and a label that warns you what you're getting into.
+        </p>
+        <div class="story-signature">
+          <img src="assets/logo.png" alt="Poison Theory" />
+          <div>
+            <strong>— The Poison Theory Lab</strong>
+            <small>Est. 2024 · Denim Division</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-visual" data-aos="fade-left">
+        <div class="story-card">
+          <img src="assets/logo.png" alt="Poison Theory logo" />
+          <div class="story-card-caption">
+            <span>Batch No. 001</span>
+            <span>Sealed &amp; Signed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="section container">
+    <div class="section-head center">
+      <p class="eyebrow" data-aos="fade-up">The Manifesto</p>
+      <h2 data-aos="fade-up" data-aos-delay="100">Three rules we <span class="gradient-red">don't break</span></h2>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card" data-aos="fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Substance over hype</h3>
+        <p>No paid influencers. No fake scarcity. If a piece sells out, it earned it.</p>
+      </article>
+
+      <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+        </div>
+        <h3>Built for the long game</h3>
+        <p>Heavyweight fabrics, reinforced stress points, hardware that won't fail. Meant to be inherited.</p>
+      </article>
+
+      <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        </div>
+        <h3>Labeled honestly</h3>
+        <p>Every product page tells you exactly what you're getting. No vague "premium blends."</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ BEST SELLERS ============ -->
+  <section class="section container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow" data-aos="fade-up">Most Wanted</p>
+        <h2 data-aos="fade-up" data-aos-delay="100">Best <span class="gradient-red">Sellers</span></h2>
+      </div>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="200">
+        The three formulas our customers keep coming back for.
+      </p>
+    </div>
+
+    <div id="bestSellerGrid" class="product-grid"></div>
+  </section>
+
+  <!-- ============ CUSTOMER NOTES ============ -->
+  <section class="section notes">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow" data-aos="fade-up">Unfiltered</p>
+        <h2 data-aos="fade-up" data-aos-delay="100">Customer <span class="gradient-red">Notes</span></h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="200">
+          Raw, unedited words from the people who wear it daily.
+        </p>
+      </div>
+
+      <div id="notesGrid" class="notes-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="contact" class="section container">
+    <div class="cta" data-aos="zoom-in">
+      <h2>Ready to <span class="gradient-red">join the trial?</span></h2>
+      <p>Browse the current stock. Take the dose that fits.</p>
+
+      <form class="cta-form" id="subscribeForm">
+        <input type="email" required placeholder="your@email.com" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="cta-feedback" id="ctaFeedback"></p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Poison Theory" />
+        <span>Poison<span>Theory</span></span>
+      </div>
+      <p class="footer-copy">© 2025 Poison Theory. Bottled rebellion.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+  </footer>
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <header class="cart-head">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="cart-body" id="cartBody"></div>
+
+    <footer class="cart-foot" id="cartFoot">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <p class="cart-note">Shipping calculated at checkout.</p>
+      <button class="btn btn-primary cart-checkout" id="cartCheckout" disabled>
+        Checkout → (coming soon)
+      </button>
+    </footer>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="js/data.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/about.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* ---------- Reset & tokens ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Core palette */
+  --bg:        #0a0a0a;
+  --bg-soft:   #111111;
+  --bg-card:   #141414;
+  --bg-elev:   #1a1a1a;
+  --border:    #232323;
+  --border-hi: #2f2f2f;
+
+  /* Ink */
+  --ink:       #e8e6e1;
+  --ink-dim:   #a8a5a0;
+  --ink-mute:  #6a6862;
+
+  /* Brand accent — red lightning */
+  --red:       #d62828;
+  --red-bright:#ef3b3b;
+  --red-dark:  #8b1a1a;
+
+  /* Type */
+  --font-display: 'Special Elite', cursive;
+  --font-head:    'Oswald', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Motion */
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;   /* reserve space for scrollbar → no layout shift between pages */
+  overflow-y: scroll;         /* fallback for older browsers */
+}
+
+/* Modern browsers: use the gutter approach instead of an always-visible scrollbar */
+@supports (scrollbar-gutter: stable) {
+  html {
+    overflow-y: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+::selection { background: var(--red); color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #262626; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+/* Grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Typography helpers */
+.eyebrow {
+  font-family: var(--font-head);
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: .35em;
+  font-size: .72rem;
+  font-weight: 500;
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, var(--red-bright) 0%, var(--red) 50%, var(--red-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: .01em; }
+
+/* Global paragraph rhythm */
+p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+  max-width: 100%;
+}
+p:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  p { margin-bottom: .85rem; line-height: 1.6; }
+}
